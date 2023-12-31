@@ -1,0 +1,326 @@
+:root {
+    /* Colori principali */
+      --colore-principale: #FFCC81; /* arancione */
+      --colore-secondario: #0B4D97; /* blue */
+    
+    /* Colori secondari */
+    --colore-blue: #80B5FF;
+    --colore-green: #80FFCA;
+    --colore-pink: #FF80B5;
+    /* Split Complementary Color*/
+    --colore-s1: #EA80FF;
+    --colore-s2: #8080FF;
+    --colore-s3: #80EAFF;
+    /* Analogous */
+    --colore-a1: #FF8A80;
+    --colore-a2: #F4FF80;
+    /* Monochromatic Color */
+    --colore-m1: #BF9960;
+    --colore-m2: #FFE6C0;
+    --colore-m3: #FEF2DF;
+  
+    --colore-nero: #0A0A0A;
+    --colore-marrone: #855C00;
+    --colore-danger: #dc3545;
+    --colore-yellow: #FFD700;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+    background-color: var(--colore-principale);
+}
+
+header {
+    background-color: var(--colore-secondario);
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+}
+
+header img {
+    max-width: 100%;
+    height: auto;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    margin: 0 15px;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    font-family: 'Segoe UI';
+    font-size: 20px;
+}
+
+.menu-principale {
+    transition: 0.4s;
+    color: var(--colore-m3);
+    font-size: 20px;
+    text-decoration: none;
+    padding: 0 10px;
+    margin: 0 10px;
+  }
+  .menu-principale:hover {
+    background-color: white;
+    color: var(--colore-secondario);
+    padding: 24px 10px;
+  }
+
+@media only screen and (max-width: 600px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        margin: 5px 0;
+    }
+}
+#welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--colore-principale);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#welcome-message {
+    padding: 20px;
+    border-radius: 10px;
+    color: var(--colore-nero);
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInOut s ease-in-out;
+}
+
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+}
+
+#modal-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+#modal-content {
+    background-color: var(--colore-nero);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    text-align: justify;
+    animation: fadeIn 0.5s ease-in-out;
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
+    position: relative; 
+}
+
+#close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 30px;
+    color: #fff;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    #modal-content {
+        width: 90%;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#video-container {
+    position: relative;
+    width: 100%;
+}
+
+#overlay-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--colore-nero); 
+    padding: 1.5vw 3.5vw;
+    font-size: 3.5vw;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border: 3px solid var(--colore-nero);
+    border-radius: 5px;
+    transition: color 0.3s ease, border-color 0.3s ease; 
+}
+
+#overlay-btn:hover {
+    color: white; 
+    border-color: white; 
+}
+
+@media (max-width: 768px) {
+    #overlay-btn {
+        padding: 2vw 5vw;
+        font-size: 3vw;
+    }
+}
+#image-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 5px auto;
+}
+.info {
+    text-align: center;
+
+}
+
+.info img {
+    width: 50%;
+    height: auto;
+    margin: 10px;
+    border-radius: 10px;
+    
+    
+}
+
+.info p {
+    margin-top: 8px;
+    font-size: 20px;
+    color: var(--colore-nero);
+    font-family: 'Segoe UI'
+    
+}
+
+.info img:hover, .info p:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+@media only screen and (max-width: 750px) {
+    #image-info {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+#form-notizia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+#form-notizia form {
+    width: 50%;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Stile per le etichette */
+#form-notizia label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Stile per gli input di testo e le aree di testo */
+#form-notizia input[type="text"],
+#form-notizia textarea,
+#form-notizia input[type='date'] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+/* Stile per il pulsante di invio */
+#form-notizia input[type="submit"] {
+    background-color: var(--colore-nero);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#form-notizia input[type="submit"]:hover {
+    background-color: var(--colore-a2);
+    color: #0A0A0A;
+}
+
+#popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#popup h2 {
+    margin-bottom: 10px;
+}
+
+#popoverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
